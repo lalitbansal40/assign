@@ -12,7 +12,7 @@ const shopify = new Shopify({
   password: token,
 });
 
-app.get("/api/products", async (req, res) => {
+app.get("/", async (req, res) => {
   const products = await shopify.product.list();
   res.send(products);
 });
