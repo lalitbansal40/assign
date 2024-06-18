@@ -11,6 +11,9 @@ const shopify = new Shopify({
   apiKey: key,
   password: token,
 });
+app.use(cors({
+  origin:"https://assign-ut72.onrender.com"
+}))
 
 app.get("/api/products", async (req, res) => {
   const products = await shopify.product.list();
