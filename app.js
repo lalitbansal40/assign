@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const port = 5000;
-const cors = require("cors");
+
 const Shopify = require("shopify-api-node");
 let shop = "messold101.myshopify.com";
 let token = "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";
@@ -12,9 +12,7 @@ const shopify = new Shopify({
   apiKey: key,
   password: token,
 });
-app.use(cors({
-  origin:"https://assign-ut72.onrender.com"
-}))
+
 
 app.get("/api/products", async (req, res) => {
   const products = await shopify.product.list();
